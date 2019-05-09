@@ -1,0 +1,19 @@
+{
+  "name": "project4",
+  "version": "1.0.0",
+  "description": "trip planner ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noura-alhindi/Trips_planner.git"
+  },
+  "author": "Noura Muneera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Noura-alhindi/Trips_planner/issues"
+  },
+  "homepage": "https://github.com/Noura-alhindi/Trips_planner#readme"
+}
