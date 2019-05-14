@@ -20,30 +20,17 @@
   },
   "homepage": "https://github.com/Noura-alhindi/Trips_planner#readme",
   "dependencies": {
-<<<<<<< HEAD
-    "@fortawesome/fontawesome-svg-core": "^1.2.18",
-    "@fortawesome/free-solid-svg-icons": "^5.8.2",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-=======
     "bcrypt": "^3.0.6",
->>>>>>> b5a73ec8432fe2289a0d8eefed759e20132c80b9
     "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
-<<<<<<< HEAD
-    "i": "^0.3.6",
-    "mongoose": "^5.5.6",
-    "npm": "^6.9.0",
-    "react-bootstrap": "^1.0.0-beta.8",
-=======
     "express-session": "^1.16.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.6",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
->>>>>>> b5a73ec8432fe2289a0d8eefed759e20132c80b9
     "react-router-dom": "^5.0.0"
   }
 }

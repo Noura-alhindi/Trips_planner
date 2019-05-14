@@ -60,9 +60,10 @@ class ControlledCarousel extends React.Component {
             <img
               className="d-block w-100"
               src="https://www.visittelluride.com/site/assets/files/5121/1431631458f3212.jpg"
+              alt="Secont slide"
               width="600"
               height="560"
-            />
+            /> 
   
             <Carousel.Caption>
               <h3>Third slide label</h3>
@@ -75,6 +76,7 @@ class ControlledCarousel extends React.Component {
             <img
               className="d-block w-100"
               src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"
+              alt="Third slide"
               width="600"
               height="560"
             />
