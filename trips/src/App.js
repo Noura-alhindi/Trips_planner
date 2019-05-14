@@ -1,37 +1,36 @@
-    // import React from 'react';
     import React, { Component } from 'react';
     import "bootstrap/dist/css/bootstrap.min.css";
-    // import {
-    //   BrowserRouter as Router,
-    //   Route,
-    //   Link
-    // } from 'react-router-dom';
-    
     import Nav from './Nav';
     import Experience from './Experience';
-    import './App.css';
+    // import './App.css';
 
+  let header = {
+      headers :{
+        "Content-Type" : "application/json",
+        "Authorization" : `Bearer ${getToken()}`
+      }
+    }
     class App extends Component {
       state = {
-        placesDisplay : [] 
+        placesDisplay : [],
+        user : "",
+        errorMsg : '',
+        isAuthenticated : false,
+        hasError : false
       }
-      
-      // handleSearch= (input) => {
-      //   const url = `https://api.foursquare.com/v2/venues/search?client_id=A1NQCVMYYPMOOO2YTBLF2EYPYVBM5RG21MJUQUVCUQLZSN1Z&client_secret=K5O4XJZR5TTRV5OB1DRUWZB3TF2H1TXGP2ENPUTLX30FX1EF&v=20200323&limit=500&ll=40.7484,-73.9857&query=resturant&location.city${input}`
-      // fetch(url).then(response =>{
-      //   response.json().then(data => {
-    
-      //     console.log(data.venues)
-      //     this.setState({placesDisplay : data.venues})
-      //   })
-      // }
-      // )}
-      
-    
+
+
+  changeHandler = (e) => {
+    //Log every key value and save to state from form
+    let data = {...this.state}
+    data[e.target.name] = e.target.value
+
+    this.setState(data)
+  }
+
       componentDidMount=()=> {
         const url = `https://developers.zomato.com/api/v2.1/search/?entity_id/=305/&entity_type/=city/&q/=Denver`
-        // const url = `https://api.foursquare.com/v2/venues/4b522afaf964a5200b6d27e3?client_id=A1NQCVMYYPMOOO2YTBLF2EYPYVBM5RG21MJUQUVCUQLZSN1Z&client_secret=K5O4XJZR5TTRV5OB1DRUWZB3TF2H1TXGP2ENPUTLX30FX1EF`
-        fetch(url).then(response =>{
+          fetch(url).then(response =>{
 
             console.log(response)
             // this.setState({placesDisplay : data.venues})
