@@ -1,17 +1,31 @@
 require('dotenv').config()
 const express = require('express')
-const app = express()
+const server = express()
 const PORT = process.env.PORT
-const URL =  process.env.URL
-const mongoose = require('mongoose')
 const cors = require('cors')
+const session = require('express-session')
+const jwt = require('jsonwebtoken')
+const passport = require('passport')
+const mongooseConnect = require('./config/mongodb')
+
+server.use(express.json())
+
+server.use(session({
+    secret : "test",
+    resave : false,
+    saveUninitialized : true
+}))
+
+server.use(passport.initialize())
+server.use(passport.session())
+
+//routes
+server.use('/api/auth', require('./routes/auth.routes'))
+server.use('/api/users', passport.authenticate('jwt', {session: false}), require('./routes/user.routes'))
 
 
-mongoose.connect(URL , {useNewUrlParser: true}).then(() => {
-    console.log('mongodb running');
-}, (err) => console.log(err))
+server.use('*', (req, res) => {
+    res.status(404).json({message : "Data not found!"})
+    })
 
-
-
-
-app.listen((PORT),()=>console.log(`active on ${PORT}`))
+server.listen((PORT),()=>console.log(`active on ${PORT}`))
