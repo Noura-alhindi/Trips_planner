@@ -1,8 +1,11 @@
     import React, { Component } from 'react';
-    import "bootstrap/dist/css/bootstrap.min.css";
+    import "bootstrap/dist/css/bootstrap.min.css"
     import Nav from './Nav';
-    import Experience from './Experience';
-    // import './App.css';
+    import Restaurant from './Restaurant';
+    // import Experience from './Experience';
+    import ControlledCarousel from './Slide' ;
+    import './App.css';
+
 
   let header = {
       headers :{
@@ -20,6 +23,7 @@
       }
 
 
+
   changeHandler = (e) => {
     //Log every key value and save to state from form
     let data = {...this.state}
@@ -32,11 +36,6 @@
         const url = `https://developers.zomato.com/api/v2.1/search/?entity_id/=305/&entity_type/=city/&q/=Denver`
           fetch(url).then(response =>{
 
-            console.log(response)
-            // this.setState({placesDisplay : data.venues})
-          })
-        }
-        
     
     
       render() {
@@ -50,7 +49,9 @@
     
     {/* {venues} */}
         <Nav />
-        <Experience />
+        {/* <Experience /> */}
+        <ControlledCarousel/>
+        <Restaurant/>
           </div>
         );
       }
