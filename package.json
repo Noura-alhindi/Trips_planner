@@ -4,7 +4,7 @@
   "description": "trip planner ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nodemon server",
     "start": "node server.js",
     "trips": "cd trips && npm start",
     "dev": "concurrently \" npm test\" \"npm run trips\""
@@ -20,9 +20,11 @@
   },
   "homepage": "https://github.com/Noura-alhindi/Trips_planner#readme",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
-    "mongoose": "^5.5.6"
+    "mongoose": "^5.5.6",
+    "react-router-dom": "^5.0.0"
   }
 }
