@@ -39,7 +39,7 @@
 
     <div className="carousel-inner">
     <div className="carousel-item active">
-        <img src="https://www.desktop-background.com/download/1920x1080/2010/11/30/118885_sukhoi-su-35-aircraft-wallpapers-hd-download-for-desktop_2560x1600_h.jpg" alt="" width="1300" height="500" />
+        <img src="https://www.desktop-background.com/download/1920x1080/2010/11/30/118885_sukhoi-su-35-aircraft-wallpapers-hd-download-for-desktop_2560x1600_h.jpg" alt="" width="1100" height="500" />
     </div>
     <div className="carousel-item">
         <img src="https://cdn2.wanderlust.co.uk/media/1014/dreamstime_l_130572735.jpg?anchor=center&mode=crop&width=1120&height=0&format=auto&quality=90&rnd=131896970510000000" alt="" width="1100" height="500" />
