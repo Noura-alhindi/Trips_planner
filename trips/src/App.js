@@ -1,6 +1,7 @@
     // import React from 'react';
     import React, { Component } from 'react';
     import "bootstrap/dist/css/bootstrap.min.css";
+    
     // import {
     //   BrowserRouter as Router,
     //   Route,
@@ -8,35 +9,50 @@
     // } from 'react-router-dom';
     
     import Nav from './Nav';
-    import Experience from './Experience';
+    import Restaurant from './Restaurant';
+    // import Experience from './Experience';
+    import ControlledCarousel from './Slide' ;
     import './App.css';
 
     class App extends Component {
       state = {
         placesDisplay : [] 
       }
-      
-      // handleSearch= (input) => {
-      //   const url = `https://api.foursquare.com/v2/venues/search?client_id=A1NQCVMYYPMOOO2YTBLF2EYPYVBM5RG21MJUQUVCUQLZSN1Z&client_secret=K5O4XJZR5TTRV5OB1DRUWZB3TF2H1TXGP2ENPUTLX30FX1EF&v=20200323&limit=500&ll=40.7484,-73.9857&query=resturant&location.city${input}`
-      // fetch(url).then(response =>{
-      //   response.json().then(data => {
+      // (forsquare)
+      // componentDidMount=()=> {
+      //   const url = `https://api.foursquare.com/v2/venues/search?client_id=A20M3ROYMIL105XIDSNL2NF3ATCOAQYLD4OUYOBAWHPR3HZP&client_secret=NIGWQSZJGKI3VZUOI3DJL4DJB3AUNS2H5BBKUZYEN5BPMKE0&v=20200323&limit=500&ll=40.7484,-73.9857&query=resturant`
+      //   fetch(url).then(response =>{
+      //     response.json().then(data => {
     
-      //     console.log(data.venues)
-      //     this.setState({placesDisplay : data.venues})
-      //   })
-      // }
-      // )}
-      
-    
-      componentDidMount=()=> {
-        const url = `https://developers.zomato.com/api/v2.1/search/?entity_id/=305/&entity_type/=city/&q/=Denver`
-        // const url = `https://api.foursquare.com/v2/venues/4b522afaf964a5200b6d27e3?client_id=A1NQCVMYYPMOOO2YTBLF2EYPYVBM5RG21MJUQUVCUQLZSN1Z&client_secret=K5O4XJZR5TTRV5OB1DRUWZB3TF2H1TXGP2ENPUTLX30FX1EF`
-        fetch(url).then(response =>{
+      //       const photoUrl = `https://api.foursquare.com/v2/venues/${data.response.venues[27].id}/photos?client_id=A20M3ROYMIL105XIDSNL2NF3ATCOAQYLD4OUYOBAWHPR3HZP&client_secret=NIGWQSZJGKI3VZUOI3DJL4DJB3AUNS2H5BBKUZYEN5BPMKE0&v=20200323&`;
+      //         fetch(photoUrl).then(response =>{
+      //           response.json().then(data => {
+      //             console.log("b",data);
+      //           let picture = `${data.response.photos.items[0].prefix}300x500${data.response.photos.items[0].suffix}`
+      //             console.log(picture);
+                  
+      //           })
+                
+      //         }
+      //         )
+            
+            
+      //       console.log("t",data.response.venues[0].id)
+            
+      //     })
+      //   }
+      //   )}
 
-            console.log(response)
-            // this.setState({placesDisplay : data.venues})
-          })
-        }
+      // -------------------
+        // (zomato) 
+      // componentDidMount=()=> {
+      //   const url = `https://developers.zomato.com/api/v2.1/search/?entity_id/=305/&entity_type/=city/&q/=Denver`
+      //   fetch(url).then(response =>{
+
+      //       console.log(response)
+      //       // this.setState({placesDisplay : data.venues})
+      //     })
+      //   }
         
     
     
@@ -51,7 +67,9 @@
     
     {/* {venues} */}
         <Nav />
-        <Experience />
+        {/* <Experience /> */}
+        <ControlledCarousel/>
+        <Restaurant/>
           </div>
         );
       }
