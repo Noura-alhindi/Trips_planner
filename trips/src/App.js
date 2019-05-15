@@ -39,6 +39,7 @@ class App extends Component {
       
     }
 
+
     // componentDidMount=()=> {
   
     //   fetch("https://developers.zomato.com/api/v2.1/search?entity_type=city&q=restaurant",{
@@ -58,6 +59,7 @@ class App extends Component {
     //     console.log(r)
     //   })
     // }
+
 
 
 changeHandler = (e) => {
@@ -108,6 +110,10 @@ loginHandler = (e) => {
 
       this.setState(data)
       this.getTrips()
+
+
+
+
     }
     
   })
@@ -175,8 +181,9 @@ render(){
     <div>
       <Nav />
     <ControlledCarousel/>
-    <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
-    <Route path='/index' component={Home}/>
+    {/* <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} /> */}
+    <Route path="/" exact component={Home} />
+    {/* <Route path='/index' component={Home}/> */}
     <Route path='/userhome' component={UserHome}/> 
     <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}/>
         
@@ -186,10 +193,14 @@ render(){
           {/* Username: {this.state.user.username} */}
           {/* {Logout} */}
           {/* {showLogin} */}
+
           {/* {TripView} */}
         {/* </Container> } */}
 
         {/* {venue} */}
+
+          {TripView}
+        </Container>
       <Restaurant/>
     </div>
   </Router>  
