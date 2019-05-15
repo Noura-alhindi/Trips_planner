@@ -1,5 +1,5 @@
 const Trip = require('../models/trips')
-const router = require('express')
+const router = require('express').Router()
 
 router.get('/', (request, response)=>{
     Trip.find({})
@@ -19,7 +19,8 @@ router.get('/', (request, response)=>{
 router.post('/', (request, response)=>{
 
     let data = {
-    name : request.body.name
+    name : request.body.name,
+    days : request.body.days
     }
     
     let trip = new Trip(data)

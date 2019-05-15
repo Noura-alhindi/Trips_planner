@@ -21,7 +21,8 @@ server.use(passport.session())
 
 //routes
 server.use('/api/auth', require('./routes/auth.routes'))
-server.use('/api/users', passport.authenticate('jwt', {session: false}), require('./routes/user.routes'))
+server.use('/api/trips', require('./routes/trips.routes'))
+server.use('/api/user', passport.authenticate('jwt', {session: false}), require('./routes/user.routes'))
 
 
 server.use('*', (req, res) => {

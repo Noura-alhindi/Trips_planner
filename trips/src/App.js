@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode'
 import "bootstrap/dist/css/bootstrap.min.css"
 import {Container, Row, Button, Col, Alert} from 'reactstrap';
 import { getToken, setToken, logout} from './services/auth';
@@ -14,10 +15,11 @@ import Home from './components/Home'
 import UserHome from './components/UserHome'
 import Nav from './components/Nav';
 import Restaurant from './components/Restaurant';
-// import Experience from './Experience';
 import ControlledCarousel from './components/Slide' ;
 import Login from './components/Login';
 import Search from './components/Search';
+import { decode } from 'punycode';
+
 
 
 
@@ -114,8 +116,11 @@ getTrips = () =>{
 }
 
 submitHandler = (e) => {   
-  axios.post('/api/trips',{ name : this.state.name}, header)
+  e.preventDefault()
+  axios.post('/api/trips',{ name : this.state.name, days: this.state.days}, header)
     .then( response => {
+      console.log("worked");
+      
         let data = {...this.state}
         data.trips.push(response.data)
         this.setState(data)
@@ -137,10 +142,6 @@ loginHandler = (e) => {
 
       this.setState(data)
       this.getTrips()
-
-
-
-
     }
     
   })
@@ -176,11 +177,37 @@ displayTrips = ()=>{
 <li key={trip._id} id={trip._id}>{trip.name}</li>
     )
 }
+componentDidMount(){
+  if(getToken()){
+    let decoded = jwt_decode(getToken()) //decode token
+    let data = {...this.state}
+    data.user = decoded
+    data.isAuthenticated = true
+    this.setState(data)
+  }
+  else{
+    return (<Redirect to='/login' />)
+  }
+
+  axios.get('/api/trips')
+  .then(response => {
+    console.log("i am a response",response.data)
+    if(response.data.trips.length > 0){
+      
+  let data = {...this.state}
+  data.trips = response.data.trips
+      this.setState(data)
+    }
+  })
+  .catch()
+}
+
+
+
 
 
 render(){ 
-
-    let venues = this.state.displayVenues.map(venue=>{
+      let venues = this.state.displayVenues.map(venue=>{
       return <Restaurant venue={venue} />
       // let randoms = this.state.displayVenues.map(venue=>{
       //   return <Restaurant venue={venue} />
@@ -188,11 +215,6 @@ render(){
     } )
 
 
-   //if not logged in show login page
-  const showLogin = (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} /> : null
-    // show logout button
-  const Logout = (this.state.isAuthenticated) ? <Button onClick={this.logout}>Logout</Button> : null
-   //show trips when logged in
   const TripView = (this.state.isAuthenticated) ? <Row>
                                                     <Col md={6}>
                                                       <ShowTrip trips={this.state.trips} />
@@ -208,32 +230,24 @@ render(){
 
   return (
   <Router>
-    <div>
-      <Nav />
-    <ControlledCarousel/>
-    <Search search ={this.handleSearch}/>
-    {/* <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} /> */}
-    <Route path="/" exact component={Home} />
-    {/* <Route path='/index' component={Home}/> */}
-    <Route path='/userhome' component={UserHome}/> 
-    <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}/>
-        
-        {/* { <Container>
-          <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>
-           */}
-          {/* Username: {this.state.user.username} */}
-          {/* {Logout} */}
-          {/* {showLogin} */}
+      <Nav loggedIn={this.state.isAuthenticated} logout={this.logout}/>
 
-          {/* {TripView} */}
-        {/* </Container> } */}
+    {/* <Route path="/addtrip"  render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} /> */}
+
+    <Route path='/userhome' component={UserHome}/> 
+    {/* <Route path='/addtrip' render={(props=> <AddTrip change={this.changeHandler} submit={this.submitHandler} {...props}/>)}/>  */}
+    <Route path='/Restaurant' component ={Restaurant}/>
+    <Route path='/Login' render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/"/> )} />
+    <Route exact path="/"  component={Home} />
+    {/* <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}/> */}
+        
+        <Container>
+          <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>
+          {/* Username: {this.state.user.username} */}
 
         {venues}
-        {/* {randoms} */}
-
-         
-       
-    </div>
+          {TripView} 
+        </Container>
   </Router>  
   );
   }
