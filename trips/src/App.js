@@ -1,6 +1,7 @@
     // import React from 'react';
     import React, { Component } from 'react';
     import "bootstrap/dist/css/bootstrap.min.css";
+    // import Image2 from './Image2' ;
     
     // import {
     //   BrowserRouter as Router,
@@ -18,58 +19,48 @@
       state = {
         placesDisplay : [] 
       }
-      // (forsquare)
-      // componentDidMount=()=> {
-      //   const url = `https://api.foursquare.com/v2/venues/search?client_id=A20M3ROYMIL105XIDSNL2NF3ATCOAQYLD4OUYOBAWHPR3HZP&client_secret=NIGWQSZJGKI3VZUOI3DJL4DJB3AUNS2H5BBKUZYEN5BPMKE0&v=20200323&limit=500&ll=40.7484,-73.9857&query=resturant`
-      //   fetch(url).then(response =>{
-      //     response.json().then(data => {
-    
-      //       const photoUrl = `https://api.foursquare.com/v2/venues/${data.response.venues[27].id}/photos?client_id=A20M3ROYMIL105XIDSNL2NF3ATCOAQYLD4OUYOBAWHPR3HZP&client_secret=NIGWQSZJGKI3VZUOI3DJL4DJB3AUNS2H5BBKUZYEN5BPMKE0&v=20200323&`;
-      //         fetch(photoUrl).then(response =>{
-      //           response.json().then(data => {
-      //             console.log("b",data);
-      //           let picture = `${data.response.photos.items[0].prefix}300x500${data.response.photos.items[0].suffix}`
-      //             console.log(picture);
-                  
-      //           })
-                
-      //         }
-      //         )
-            
-            
-      //       console.log("t",data.response.venues[0].id)
-            
-      //     })
-      //   }
-      //   )}
+     
 
-      // -------------------
-        // (zomato) 
-      // componentDidMount=()=> {
-      //   const url = `https://developers.zomato.com/api/v2.1/search/?entity_id/=305/&entity_type/=city/&q/=Denver`
-      //   fetch(url).then(response =>{
 
-      //       console.log(response)
-      //       // this.setState({placesDisplay : data.venues})
-      //     })
-      //   }
-        
-    
-    
+  // fetch("https://developers.zomato.com/api/v2.1/restaurant?res_id=%20%2016774318"
+      componentDidMount=()=> {
+      
+      fetch("https://developers.zomato.com/api/v2.1/search?entity_type=city&q=restaurant",{
+        headers:{
+          "user-key" : "76984ab3dd3557f029fe03c716e88a2e"
+        }
+      })
+      .then(res=> res.json())
+      .then(r => {
+        // console.log(r.restaurants[1].restaurant.name)
+        // console.log(r.restaurants[1].restaurant.featured_image)
+        // console.log(r.restaurants[1].restaurant.thumb)
+        // console.log(r.restaurants[1].restaurant.cuisines)
+        // console.log(r.restaurants[1].restaurant.user_rating.aggregate_rating)
+        // this.setState({placesDisplay : r.venues})
+        // console.log(r.venues)
+        console.log(r)
+      })
+              }
+     
+
+
       render() {
     
     // const venues = this.state.placesDisplay.map(venue=>{
-    //   return <App venues ={venue} />
+    //   return <Restaurant venues ={venue} />
     // } )
     
         return (
           <div className="App">
     
-    {/* {venues} */}
+     {/* {venues} */}
+
         <Nav />
-        {/* <Experience /> */}
         <ControlledCarousel/>
+        {/* <Image2/> */}
         <Restaurant/>
+       
           </div>
         );
       }
