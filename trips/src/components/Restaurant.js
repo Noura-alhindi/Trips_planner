@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import CardDeck from 'react-bootstrap/CardDeck';
 import Card from 'react-bootstrap/Card';
-import './App.css' ;
+// import './App.css' ;
+import './component.css' ;
 
 
 export default class Restaurant extends Component {
