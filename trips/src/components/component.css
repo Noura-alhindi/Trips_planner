@@ -5,3 +5,17 @@
     .container{
         margin-top: 25px;
     }
+     .sign{
+        color:rgb(116, 114, 114);
+        /* COLOR: blue;  */
+        text-decoration: none;
+    }
+    a:hover {
+        color:rgb(20, 20, 20);
+        text-decoration: none;
+      }
+      .image2{
+        margin-top: 1;
+        width:600;
+        position: relative;
+      } 

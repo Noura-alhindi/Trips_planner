@@ -20,6 +20,7 @@ import Login from './components/Login';
 
 
 
+
 let header = {
     headers :{
       "Content-Type" : "application/json",
@@ -33,28 +34,33 @@ class App extends Component {
       user : "",
       errorMsg : '',
       isAuthenticated : false,
-      hasError : false
+      hasError : false,
+      displayVenues : []
+      
     }
 
-componentDidMount=()=> {
+
+    // componentDidMount=()=> {
   
-  fetch("https://developers.zomato.com/api/v2.1/search?entity_type=city&q=restaurant",{
-    headers:{
-      "user-key" : "76984ab3dd3557f029fe03c716e88a2e"
-    }
-  })
-  .then(res=> res.json())
-  .then(r => {
-    // console.log(r.restaurants[1].restaurant.name)
-    // console.log(r.restaurants[1].restaurant.featured_image)
-    // console.log(r.restaurants[1].restaurant.thumb)
-    // console.log(r.restaurants[1].restaurant.cuisines)
-    // console.log(r.restaurants[1].restaurant.user_rating.aggregate_rating)
-    // this.setState({placesDisplay : r.venues})
-    // console.log(r.venues)
-    console.log(r)
-  })
-}
+    //   fetch("https://developers.zomato.com/api/v2.1/search?entity_type=city&q=restaurant",{
+    //     headers:{
+    //       "user-key" : "76984ab3dd3557f029fe03c716e88a2e"
+    //     }
+    //   })
+    //   .then(res=> res.json())
+    //   .then(r => {
+    //     // console.log(r.restaurants[1].restaurant.name)
+    //     // console.log(r.restaurants[1].restaurant.featured_image)
+    //     // console.log(r.restaurants[1].restaurant.thumb)
+    //     // console.log(r.restaurants[1].restaurant.cuisines)
+    //     // console.log(r.restaurants[1].restaurant.user_rating.aggregate_rating)
+    //     // this.setState({placesDisplay : r.venues})
+    //     // console.log(r.venues)
+    //     console.log(r)
+    //   })
+    // }
+
+
 
 changeHandler = (e) => {
   //Log every key value and save to state from form
@@ -105,6 +111,9 @@ loginHandler = (e) => {
       this.setState(data)
       this.getTrips()
 
+
+
+
     }
     
   })
@@ -143,6 +152,12 @@ displayTrips = ()=>{
 
 
 render(){ 
+
+    // const venues = this.state.placesDisplay.map(venue=>{
+    //   return <App venues ={venue} />
+    // } )
+
+
    //if not logged in show login page
   const showLogin = (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} /> : null
     // show logout button
@@ -171,12 +186,19 @@ render(){
     {/* <Route path='/index' component={Home}/> */}
     <Route path='/userhome' component={UserHome}/> 
     <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}/>
-        <Container>
+        
+        {/* { <Container>
           <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>
-          
+           */}
           {/* Username: {this.state.user.username} */}
           {/* {Logout} */}
           {/* {showLogin} */}
+
+          {/* {TripView} */}
+        {/* </Container> } */}
+
+        {/* {venue} */}
+
           {TripView}
         </Container>
       <Restaurant/>

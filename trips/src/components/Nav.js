@@ -25,13 +25,16 @@ return (
                     <Link className="nav-link" to="Restaurant">Restaurants</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link"  to="Experience">Experiences</Link>
+                    <Link className="nav-link"  to="Experience">My Plan</Link>
                 </li>
 
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
-                <input className="" type="search" placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-outline-info my-2 my-sm-1" type="submit">Search</button>
+                <Link className="sign"  to="#">sign in / up</Link>
+                {/* <Link className="navbar-brand " to="#">Sign up</Link> */}
+                
+                {/* <input className="" type="search" placeholder="Search" aria-label="Search"/>
+                <button className="btn btn-outline-info my-2 my-sm-1" type="submit">Search</button> */}
                 </form>
             </div>
             </nav>
