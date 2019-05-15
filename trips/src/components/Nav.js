@@ -1,14 +1,26 @@
-import React from 'react';
+import React , {Component} from 'react';
 import {
     BrowserRouter as  Route , Link 
 }from 'react-router-dom'
 import './component.css' ;
+import UserHome from './UserHome'
+import Restaurant from './Restaurant';
 
 
 
-function Nav() {
+class Nav extends Component {
+    render(){
+        let sign;
+      if ( this.props.loggedIn) {
+        
+        sign = <Link className="sign"  onClick={this.props.logout} to="/">Logout</Link>
+    } else {
+
+        sign = <Link className="sign"  to="Login">sign in / up</Link>
+    }
+
+    
 return (
-    <Route>
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <Link className="navbar-brand" href="#">Trip planner </Link>
@@ -19,18 +31,21 @@ return (
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-                <Link className="nav-link" href="#">Home <span className="sr-only">(current)</span></Link>
+                <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
             </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="Restaurant">Restaurants</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link"  to="Experience">My Plan</Link>
+                    <Link className="nav-link"  to="userhome">My Plan</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link"  to="addtrip">Add Trip</Link>
                 </li>
 
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
-                <Link className="sign"  to="#">sign in / up</Link>
+               {sign}
                 {/* <Link className="navbar-brand " to="#">Sign up</Link> */}
                 
                 {/* <input className="" type="search" placeholder="Search" aria-label="Search"/>
@@ -39,8 +54,8 @@ return (
             </div>
             </nav>
             </div>
-    </Route>
         );
         }
+    }
 
         export default Nav;

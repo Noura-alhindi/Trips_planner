@@ -4,8 +4,12 @@ import {Input, Button} from 'reactstrap'
 const AddTrip = (props) => {
     return (
         <div>
-        <Input name="Tripename" onChange={props.change} />
+            Name:
+        <Input name="name" onChange={props.change} />
+        Days:
+        <Input name="days" onChange={props.change} />
         <Button onClick={props.add} block>Add Trip</Button>
+
         </div>
     )
     }
