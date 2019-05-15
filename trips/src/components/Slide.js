@@ -35,7 +35,7 @@ class ControlledCarousel extends React.Component {
               src="https://www.visittelluride.com/site/assets/files/36264/dojet_tex.jpg"
               alt="First slide"
               width="600"
-              height="560"
+              height="530"
             />
            
             <Carousel.Caption>
@@ -49,7 +49,7 @@ class ControlledCarousel extends React.Component {
               src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"
               alt="Third slide"
               width="600"
-              height="560"
+              height="530"
             />
             
   
@@ -64,7 +64,7 @@ class ControlledCarousel extends React.Component {
               src="https://www.visittelluride.com/site/assets/files/5121/1431631458f3212.jpg"
               alt="Secont slide"
               width="600"
-              height="560"
+              height="530"
             /> 
             
   
@@ -81,7 +81,7 @@ class ControlledCarousel extends React.Component {
               src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"
               alt="Third slide"
               width="600"
-              height="560"
+              height="530"
             />
            
             
