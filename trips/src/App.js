@@ -17,7 +17,9 @@ import Nav from './components/Nav';
 import Restaurant from './components/Restaurant';
 import ControlledCarousel from './components/Slide' ;
 import Login from './components/Login';
+import Search from './components/Search';
 import { decode } from 'punycode';
+
 
 
 
@@ -41,6 +43,36 @@ class App extends Component {
     }
 
 
+    handleSearch= (input)=> {
+  // let city = 'dubai'
+      fetch(`https://developers.zomato.com/api/v2.1/cities?q=${input}}`,{
+        headers:{
+          "user-key" : "76984ab3dd3557f029fe03c716e88a2e"
+        }
+      })
+      .then(res=> res.json())
+      .then(r => {
+        console.log(r.location_suggestions[0].id);
+        let cityId = r.location_suggestions[0].id
+        
+      fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&q=restaurant`,{
+        headers:{
+          "user-key" : "76984ab3dd3557f029fe03c716e88a2e"
+        }
+      })
+      .then(res=> res.json())
+      .then(r => {
+        let data = {...this.state}
+        console.log("***",r.restaurants)
+        r.restaurants.forEach((restaurant)=>{
+          data.displayVenues.push(restaurant)
+        })
+  this.setState(data)
+
+      })
+      })
+    }
+
     // componentDidMount=()=> {
   
     //   fetch("https://developers.zomato.com/api/v2.1/search?entity_type=city&q=restaurant",{
@@ -50,17 +82,13 @@ class App extends Component {
     //   })
     //   .then(res=> res.json())
     //   .then(r => {
-    //     // console.log(r.restaurants[1].restaurant.name)
-    //     // console.log(r.restaurants[1].restaurant.featured_image)
-    //     // console.log(r.restaurants[1].restaurant.thumb)
-    //     // console.log(r.restaurants[1].restaurant.cuisines)
-    //     // console.log(r.restaurants[1].restaurant.user_rating.aggregate_rating)
-    //     // this.setState({placesDisplay : r.venues})
-    //     // console.log(r.venues)
-    //     console.log(r)
+       
+    //     console.log("random",r)
+    //     this.setState(r.restaurants)
+    //     console.log(r.restaurants);
     //   })
+      
     // }
-
 
 
 changeHandler = (e) => {
@@ -175,10 +203,17 @@ componentDidMount(){
 }
 
 
+
+
+
 render(){ 
-    // const venues = this.state.placesDisplay.map(venue=>{
-    //   return <App venues ={venue} />
-    // } )
+      let venues = this.state.displayVenues.map(venue=>{
+      return <Restaurant venue={venue} />
+      // let randoms = this.state.displayVenues.map(venue=>{
+      //   return <Restaurant venue={venue} />
+
+    } )
+
 
   const TripView = (this.state.isAuthenticated) ? <Row>
                                                     <Col md={6}>
@@ -198,6 +233,7 @@ render(){
       <Nav loggedIn={this.state.isAuthenticated} logout={this.logout}/>
 
     {/* <Route path="/addtrip"  render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} /> */}
+
     <Route path='/userhome' component={UserHome}/> 
     {/* <Route path='/addtrip' render={(props=> <AddTrip change={this.changeHandler} submit={this.submitHandler} {...props}/>)}/>  */}
     <Route path='/Restaurant' component ={Restaurant}/>
@@ -208,10 +244,10 @@ render(){
         <Container>
           <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>
           {/* Username: {this.state.user.username} */}
-          
+
+        {venues}
           {TripView} 
         </Container>
-      {/* <Restaurant/> */}
   </Router>  
   );
   }
