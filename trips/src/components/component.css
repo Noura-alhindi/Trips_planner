@@ -1,90 +1,104 @@
-    body{
-        background-color: rgb(242, 242, 242) ;
-    
-    }
-    .container{
-        margin-top: 25px;
-    }
-     .sign{
-        color:rgb(116, 114, 114);
-        /* COLOR: blue;  */
-        text-decoration: none;
-    }
-    a:hover {
-        color:rgb(20, 20, 20);
-        text-decoration: none;
-      }
-      .image2{
-        margin-top: 1;
-        width:600;
-        position: relative;
-      } 
-      
-     .image{
-         /* margin: auto; */
-         margin-right: 30px;
-     }
+body{
+    background-color: rgb(242, 242, 242) ;
 
-      .card {
-        /* background-color: transparent; */
-        /* width: 400px; */
-        height: 330px;
-        /* perspective: 1000px; */
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-content: center;
-        float: left;
-        width: 31%;
-        margin-bottom: 10px;
-        /* padding : 30px;   */
-        margin-left: 18px;
-        margin-top: 20px;
-      }
+}
+.container{
+    margin-top: 25px;
+}
+ .sign{
+    color:rgb(116, 114, 114);
+    /* COLOR: blue;  */
+    text-decoration: none;
+}
+a:hover {
+    color:rgb(20, 20, 20);
+    text-decoration: none;
+  }
+  .image2{
+    margin-top: 1;
+    width:600;
+    position: relative;
+  } 
+  
+ .image{
+     /* margin: auto; */
+     margin-right: 30px;
+ }
+
+  .card {
+    /* background-color: transparent; */
+    /* width: 400px; */
+    /* height: 330px;
+    /* perspective: 1000px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    float: left;
+    width: 31%;
+    margin-bottom: 10px;
+    padding : 30px;  
+    margin-left: 18px;
+    margin-top: 20px; 
+
+    }
 
 
 .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    /* transition: transform 0.6s; */
-    /* transform-style: preserve-3d; */
-    /* border-radius: 15px; */
-    /* box-shadow:3px 2px 6px rgb(85, 84, 84); */
-  
-  }
-  .flip-card-front {
-  
-    /* background-color:rgb(19, 1, 56); */
-    /* color: black; */
-    z-index: 2;
-    /* border-radius: 15px; */
-    /* width:70%; */
-  }
-  .resname{
-      color:rgb(24, 24, 24);
-      margin-top:11px;
-  }
-  .cuisines{
-      color:rgb(83, 83, 83);
-      font-size: 12px;
-  }
- .search{
-    margin-left: 460px;
-    margin-top: 12px;
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+/* transition: transform 0.6s; */
+/* transform-style: preserve-3d; */
+/* border-radius: 15px; */
+/* box-shadow:3px 2px 6px rgb(85, 84, 84); */
+
+}
+.flip-card-front {
+
+/* background-color:rgb(19, 1, 56); */
+/* color: black; */
+z-index: 2;
+/* border-radius: 15px; */
+/* width:70%; */
+}
+.resname{
+  color:rgb(24, 24, 24);
+  margin-top:11px;
+}
+.cuisines{
+  color:rgb(83, 83, 83);
+  font-size: 12px;
+}
+.search{
+    margin-left: 450px;
+    /* margin-bottom: 100px; */
+    /* position: absolute; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
  }
- .Location{
-    margin-left: 5px;
- }
- .rating{
-     color:rgb(186, 165, 4);
- }
- .button{
-     background-color:rgb(174, 207, 209);
-     color:rgb(156, 156, 141);
- }
- .searchLocation{
+.Location{
+margin-left: 5px;
+}
+.rating{
+ color:rgb(186, 165, 4);
+}
+.button{
+ background-color:rgb(174, 207, 209);
+ color:rgb(156, 156, 141);
+}
+.searchLocation{
     background-color:rgb(174, 207, 209);
     color:rgb(156, 156, 141);
+ }
+ .navbar-brand{
+   
+    font-family: fantasy;
+    color: cadetblue;
+
+ }
+ h1{
+     color: cadetblue;
  }

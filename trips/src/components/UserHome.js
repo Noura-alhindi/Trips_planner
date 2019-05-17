@@ -5,11 +5,8 @@ class Profile extends Component{
     render(){
         return(
             <div>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            </div>
+                <h1>Hi</h1>
+            </div> 
         )
     }
 }
