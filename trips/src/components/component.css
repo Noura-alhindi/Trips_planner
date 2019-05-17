@@ -1,5 +1,30 @@
-body{
-    background-color: rgb(242, 242, 242) ;
+    body{
+        /* background-color: rgb(242, 242, 242) ; */
+    
+    }
+    .container{
+        margin-top: 25px;
+    }
+     .sign{
+        color:rgb(116, 114, 114);
+        /* COLOR: blue;  */
+        text-decoration: none;
+    }
+    a:hover {
+        color:rgb(20, 20, 20);
+        text-decoration: none;
+      }
+      .image2{
+        margin-top: 1;
+        width:600;
+        position: relative;
+      } 
+      
+     .image{
+         /* margin: auto; */
+         margin-right: 30px;
+     }
+
 
 }
 .container{
@@ -20,9 +45,36 @@ a:hover {
     position: relative;
   } 
   
+
+    /* background-color:rgb(19, 1, 56); */
+    /* color: black; */
+    z-index: 2;
+    /* border-radius: 15px; */
+    /* width:70%; */
+  }
+  .resname{
+      color:rgb(24, 24, 24);
+      margin-top:11px;
+  }
+  .cuisines{
+      color:rgb(83, 83, 83);
+      font-size: 12px;
+  }
+ .search{
+    margin-left: 450px;
+    /* margin-bottom: 100px; */
+    /* position: absolute; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+ }
+ .Location{
+    margin-left: 8px;
+
  .image{
      /* margin: auto; */
      margin-right: 30px;
+
  }
 
   .card {
@@ -99,6 +151,12 @@ margin-left: 5px;
     color: cadetblue;
 
  }
+
+ .footer{
+     height: 100px;
+     color: black;
+
  h1{
      color: cadetblue;
+
  }

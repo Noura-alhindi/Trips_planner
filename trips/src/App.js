@@ -13,12 +13,14 @@ import {
 
 import Home from './components/Home'
 import UserHome from './components/UserHome'
+import RestContainer from './components/restContainer'
 import Nav from './components/Nav';
 import Restaurant from './components/Restaurant';
-import ControlledCarousel from './components/Slide' ;
+// import ControlledCarousel from './components/Slide' ;
 import Login from './components/Login';
 import Search from './components/Search';
 import { decode } from 'punycode';
+import Footer from './components/Footer';
 
 
 
@@ -74,25 +76,7 @@ class App extends Component {
       })
     }
 
-    // componentDidMount=()=> {
-      
-      
-    //   // fetch("https://developers.zomato.com/api/v2.1/search?entity_type=city&q=restaurant",{
-    //   //   headers:{
-    //   //     "user-key" : "76984ab3dd3557f029fe03c716e88a2e"
-    //   //   }
-    //   // })
-    //   // .then(res=> res.json())
-    //   // .then(r => {
-       
-    //   //   console.log("random",r)
-    //   //   this.setState(r.restaurants)
-    //   //   console.log(r.restaurants);
-    //   // })
-      
-    // }
-
-
+    
 changeHandler = (e) => {
   //Log every key value and save to state from form
   let data = {...this.state}
@@ -238,6 +222,7 @@ render(){
       
   console.log(this.state)
 
+
   const search = (this.state.isAuthenticated) ?       <div className="search">
   <input  name="searchValue" onChange={this.changeHandler} value={this.state.searchValue} type="text"/>
 <input className="searchLocation" type="submit" onClick={()=>{this.handleSearch(this.state.searchValue)}} value="search"/>
@@ -247,31 +232,32 @@ render(){
 : null
 
   return (
+  
   <Router>
       <Nav loggedIn={this.state.isAuthenticated} logout={this.logout}/>
-
         {search}
       
     {/* <Route path="/addtrip"  render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} /> */}
 
     <Route path='/userhome' component={UserHome}/> 
     {/* <Route path='/addtrip' render={(props=> <AddTrip change={this.changeHandler} submit={this.submitHandler} {...props}/>)}/>  */}
-    <Route path='/Restaurant' component ={Restaurant}/>
+    <Route path='/Restaurant'render={(props => <RestContainer venue={this.state.displayVenues} {...props}/>)}/>
     <Route path='/Login' render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/"/> )} />
-    <Route exact path="/"  component={Home} />
+    <Route exact path="/"  render={(props => <Home venue={this.state.displayVenues} {...props} />)} />
     {/* <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}/> */}
           
         <Container>
           <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>
-          {/* Username: {this.state.user.username} */}
-          {/* <div className="search">
-          <input name="searchValue" onChange={this.changeHandler} value={this.state.searchValue} type="text"/>
-        <input type="submit" onClick={()=>{this.handleSearch(this.state.searchValue)}} value="search"/>
-        </div> */}
+
+
+        {Footer}
+
         
         {venues}
+
         </Container>
   </Router>  
+ 
   );
   }
 }

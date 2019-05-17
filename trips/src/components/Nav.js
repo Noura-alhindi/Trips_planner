@@ -50,7 +50,9 @@ return (
                     <Link className="nav-link"  to="userhome">My Plan</Link>
                 </li>
                 {/* <li className="nav-item">
-                    <Link className="nav-link"  to="showtrip">Add Trip</Link>
+
+                    <Link className="nav-link"  to="addtrip">Add Trip</Link>
+
                 </li> */}
 
                 </ul>
@@ -60,6 +62,7 @@ return (
                 {/* {search} */}
                 {/* </form> */} 
                 
+
             </div>
             {sign}
             </nav>
