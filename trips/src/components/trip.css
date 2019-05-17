@@ -1,0 +1,21 @@
+.card {
+    /* background-color: transparent; */
+    /* width: 400px; */
+    /* height: 330px; */
+    /* perspective: 1000px; */
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    /* align-content: center; */
+    /* float: left; */
+    width: 510;
+    margin-bottom: 10px;
+    padding : 30px;  
+    /* margin-left: 18px; */
+    margin-top: 20px;
+    } 
+
+    h5{
+        color: gray;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    } 

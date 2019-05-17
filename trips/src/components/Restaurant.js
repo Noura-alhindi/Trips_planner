@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-
 // import CardDeck from 'react-bootstrap/CardDeck';
 // import Card from 'react-bootstrap/Card';
 // import Button from 'react-bootstrap/Button';
@@ -10,6 +9,7 @@ import './component.css' ;
 
 
 export default class Restaurant extends Component {
+
 addRestaurant=(restaurant)=>{
 let res = {
   name : restaurant.restaurant.name,
@@ -79,53 +79,8 @@ card = (<div class="card">
         
         <div>
 
-      {card}
-        </div>
-            </container>
-  
-            )
-        }
-    }
+=======
 
 
 
-//       <container>
-//       <div>
-//       <Card className="Card" style={{ width: '300px' }}>
-//       <img className="imgres" variant="top" src={this.props.rest.thumb} width="300px" height="200"/>
-//   {/* <Card.Img variant="top" src="{this.props.venue.restaurant.thumb}" /> */}
-//   <Card.Body>
-    
-//     <Card.Title>{this.props.venue.restaurant.name}</Card.Title>
-//     <Card.Text>
-//       Some quick example text to build on the card title and make up the bulk of
-//       the card's content.
-//     </Card.Text>
-//     <Button variant="primary">Go somewhere</Button>
-//   </Card.Body>
-// </Card>
-// </div>
-// </container>
 
-
-//       <div className="container">
-//       <div>
-//         <CardDeck>
-//   <Card>
-//     <Card.Img variant="top" src="holder.js/100px160" />
-//     <Card.Body>
-//       <Card.Title>  <img src={this.props.venue.restaurant.thumb} width="345px" height="200"/></Card.Title>
-//       { <Card.Text>
-//       {this.props.venue.restaurant.name}
-//       
-//        description
-//       </Card.Text> }
-//     </Card.Body>
-//     <Card.Footer>
-//      <button className="btn btn-outline-info my-2 my-sm-1" type="submit">Add</button>
-//     </Card.Footer>
-//   </Card>
-// </CardDeck>
-//       </div>
-//       </div>
-//   

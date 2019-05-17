@@ -27,9 +27,11 @@ return <Restaurant rest={restaurant}/>
         })
         return(
             <div>
+
           {all}
            
             </div>
+
         )
     }
 }
