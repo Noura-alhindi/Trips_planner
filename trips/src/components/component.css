@@ -1,5 +1,5 @@
     body{
-        background-color: rgb(242, 242, 242) ;
+        /* background-color: rgb(242, 242, 242) ; */
     
     }
     .container{
@@ -71,11 +71,15 @@
       font-size: 12px;
   }
  .search{
-    margin-left: 460px;
-    margin-top: 12px;
+    margin-left: 450px;
+    /* margin-bottom: 100px; */
+    /* position: absolute; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
  }
  .Location{
-    margin-left: 5px;
+    margin-left: 8px;
  }
  .rating{
      color:rgb(186, 165, 4);
@@ -87,4 +91,14 @@
  .searchLocation{
     background-color:rgb(174, 207, 209);
     color:rgb(156, 156, 141);
+ }
+ .navbar-brand{
+   
+    font-family: fantasy;
+    color: cadetblue;
+
+ }
+ .footer{
+     height: 100px;
+     color: black;
  }

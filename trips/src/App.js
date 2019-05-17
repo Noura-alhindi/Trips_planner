@@ -13,12 +13,14 @@ import {
 
 import Home from './components/Home'
 import UserHome from './components/UserHome'
+import RestContainer from './components/restContainer'
 import Nav from './components/Nav';
 import Restaurant from './components/Restaurant';
-import ControlledCarousel from './components/Slide' ;
+// import ControlledCarousel from './components/Slide' ;
 import Login from './components/Login';
 import Search from './components/Search';
 import { decode } from 'punycode';
+import Footer from './components/Footer';
 
 
 
@@ -38,7 +40,8 @@ class App extends Component {
       errorMsg : '',
       isAuthenticated : false,
       hasError : false,
-      displayVenues : []
+      displayVenues : [],
+      searchValue: ''
       
     }
 
@@ -64,9 +67,9 @@ class App extends Component {
       .then(r => {
         let data = {...this.state}
         console.log("***",r.restaurants)
-        r.restaurants.forEach((restaurant)=>{
-          data.displayVenues.push(restaurant)
-        })
+        
+          data.displayVenues = r.restaurants
+       
   this.setState(data)
 
       })
@@ -74,19 +77,24 @@ class App extends Component {
     }
 
     // componentDidMount=()=> {
-  
-    //   fetch("https://developers.zomato.com/api/v2.1/search?entity_type=city&q=restaurant",{
-    //     headers:{
-    //       "user-key" : "76984ab3dd3557f029fe03c716e88a2e"
-    //     }
-    //   })
-    //   .then(res=> res.json())
-    //   .then(r => {
+      
+  // //     fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=51&entity_type=city&q=restaurant`,{
+  //       headers:{
+  //         "user-key" : "76984ab3dd3557f029fe03c716e88a2e"
+  //       }
+  //     })
+  //     .then(res=> res.json())
+  //     .then(r => {
+  //       let data = {...this.state}
+  //       console.log("***",r.restaurants)
+        
+  //         data.displayVenues = r.restaurants
        
-    //     console.log("random",r)
-    //     this.setState(r.restaurants)
-    //     console.log(r.restaurants);
-    //   })
+  // this.setState(data)
+
+  //     })
+      
+   
       
     // }
 
@@ -184,6 +192,7 @@ componentDidMount(){
     data.user = decoded
     data.isAuthenticated = true
     this.setState(data)
+    this.handleSearch('dubai')
   }
   else{
     return (<Redirect to='/login' />)
@@ -207,12 +216,19 @@ componentDidMount(){
 
 
 render(){ 
-      let venues = this.state.displayVenues.map(venue=>{
+  console.log("i am all",this.state.displayVenues);
+  
+      let venues;
+      if (this.state.displayVenues.length > 0){
+      venues = this.state.displayVenues.map(venue=>{
+        console.log("i am v",venue);
+        
       return <Restaurant venue={venue} />
       // let randoms = this.state.displayVenues.map(venue=>{
       //   return <Restaurant venue={venue} />
 
     } )
+  }
 
 
   const TripView = (this.state.isAuthenticated) ? <Row>
@@ -228,27 +244,49 @@ render(){
       
   console.log(this.state)
 
+  const search =(this.state.isAuthenticated) ?       <div className="search">
+  <input  name="searchValue" onChange={this.changeHandler} value={this.state.searchValue} type="text"/>
+<input className="searchLocation" type="submit" onClick={()=>{this.handleSearch(this.state.searchValue)}} value="search"/>
+{/* {TripView}  */}
+
+</div>
+: null
+
+
   return (
+  
   <Router>
       <Nav loggedIn={this.state.isAuthenticated} logout={this.logout}/>
-
+      {/* <div className="search">
+           <input  name="searchValue" onChange={this.changeHandler} value={this.state.searchValue} type="text"/>
+        <input className="searchLocation" type="submit" onClick={()=>{this.handleSearch(this.state.searchValue)}} value="search"/>
+        </div> */}
+        {search}
+      
     {/* <Route path="/addtrip"  render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} /> */}
 
     <Route path='/userhome' component={UserHome}/> 
     {/* <Route path='/addtrip' render={(props=> <AddTrip change={this.changeHandler} submit={this.submitHandler} {...props}/>)}/>  */}
-    <Route path='/Restaurant' component ={Restaurant}/>
+    <Route path='/Restaurant'render={(props => <RestContainer venue={this.state.displayVenues} {...props}/>)}/>
     <Route path='/Login' render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/"/> )} />
-    <Route exact path="/"  component={Home} />
+    <Route exact path="/"  render={(props => <Home venue={this.state.displayVenues} {...props} />)} />
     {/* <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}/> */}
         
         <Container>
           <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>
           {/* Username: {this.state.user.username} */}
-
-        {venues}
-          {TripView} 
+          {/* <div className="search">
+           <input name="searchValue" onChange={this.changeHandler} value={this.state.searchValue} type="text"/>
+        <input type="submit" onClick={()=>{this.handleSearch(this.state.searchValue)}} value="search"/>
+        
+        </div> */}
+        {/* <Search/> */}
+          {/* {TripView}  */}
+        {/* {venues} */}
+        {Footer}
         </Container>
   </Router>  
+ 
   );
   }
 }

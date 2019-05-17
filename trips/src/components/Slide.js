@@ -35,7 +35,7 @@ class ControlledCarousel extends React.Component {
               src="https://www.visittelluride.com/site/assets/files/36264/dojet_tex.jpg"
               alt="First slide"
               width="600"
-              height="530"
+              height="480"
             />
            
             <Carousel.Caption>
@@ -46,10 +46,10 @@ class ControlledCarousel extends React.Component {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"
+              src="https://whatson.ae/dubai/wp-content/uploads/2016/09/Kyo-header-963x400.jpg"
               alt="Third slide"
               width="600"
-              height="530"
+              height="480"
             />
             
   
@@ -61,10 +61,10 @@ class ControlledCarousel extends React.Component {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://www.visittelluride.com/site/assets/files/5121/1431631458f3212.jpg"
+              src="https://www.davidgriffen.com/wp-content/uploads/2019/04/Sydney-Food-Restaurant-Photographer_David-Griffen-33.jpg"
               alt="Secont slide"
               width="600"
-              height="530"
+              height="480"
             /> 
             
   
@@ -78,10 +78,10 @@ class ControlledCarousel extends React.Component {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"
+              src="https://cdn.vox-cdn.com/thumbor/wDMGcp7qWsr5fozJRYwBPxwwxaU=/0x0:4500x2045/1200x0/filters:focal(0x0:4500x2045):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/12725133/Zela_London___Cocktail_Bar.jpg"
               alt="Third slide"
               width="600"
-              height="530"
+              height="480"
             />
            
             
